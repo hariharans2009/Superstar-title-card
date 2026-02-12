@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
+    <style>
+        body { background-color: #B7CEEC; color: #C83F49; font-family: sans-serif; text-align: center; margin: 0; padding: 10px; }
+        #output { 
+            font-family: 'Courier New', monospace; 
+            text-align: centre; 
+            display: inline-block; 
+            white-space: pre; 
+            line-height: 1;
+            font-size: 18px; 
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <pre id="output">ENTER YOUR NAME
+&
+SEE THE SURPRISE!
+    
+PLEASE WAIT, LOADING....</pre>
+    
+    <script type="py">
+        import asyncio
+        from pyscript import window, document
+
+        def screen_print(text, end="\n"):
+            el = document.getElementById("output")
+            if end == "":
+                el.innerText += text
+            else:
+                el.innerText += text + end
+
+        async def draw(k, i):
+            # Preserving your exact logic methods
+            if k=="A":
+                for j in range(1,12):
+                    if i==1 or i==6 or j==1 or j==11: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="B":
+                for j in range(1,12):
+                    if i==1 or i==11 or (i==6 and j>=3) or j==3 or j==11: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="C":
+                for j in range(1,12):
+                    if i==1 or i==11 or j==1: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="D":
+                for j in range(1,12):
+                    if i==1 or i==11 or j==3 or j==11: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="E":
+                for j in range(1,12):
+                    if i==1 or i==11 or i==6 or j==1: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="F":
+                for j in range(1,12):
+                    if i==1 or i==6 or j==1: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="G":
+                for j in range(1,12):
+                    if i==1 or i==11 or (i==6 and j>=6) or j==1 or (j==11 and i>=6): screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="H":
+                for j in range(1,12):
+                    if i==6 or j==1 or j==11: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="I":
+                for j in range(1,12):
+                    if i==1 or i==11 or j==6: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="J":
+                for j in range(1,12):
+                    if i==1 or (i==11 and j<=6) or j==6 or (j==1 and i>=9): screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="K":
+                for j in range(1,12):
+                    # Using // for integer division to maintain logic
+                    if j==1 or j+((i-1)*2)==12 or i==j/2+5: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="L":
+                for j in range(1,12):
+                    if i==11 or j==1: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="M":
+                for j in range(1,12):
+                    if j==1 or j==11 or (i+j==12 and i<=6) or (i==j and i<=6): screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="N":
+                for j in range(1,12):
+                    if j==1 or j==11 or i==j: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="O":
+                for j in range(1,12):
+                    if j==1 or j==11 or i==1 or i==11: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="P":
+                for j in range(1,12):
+                    if i==1 or i==6 or j==1 or (j==11 and i<=6): screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="Q":
+                for j in range(1,12):
+                    if j==1 or j==9 or (i==1 and j<=9) or (i==11 and j<=9) or (j==6 and i>=9) or (i==9 and j>=6) or (j==11 and i>=9): screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="R":
+                for j in range(1,12):
+                    # Using // for integer division
+                    if i==1 or i==6 or j==1 or (j==11 and i<=6) or i==j/2+6: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="S":
+                for j in range(1,12):
+                    if i==1 or i==6 or i==11 or (j==1 and i<=6) or (j==11 and i>=6): screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="T":
+                for j in range(1,12):
+                    if i==1 or j==6: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="U":
+                for j in range(1,12):
+                    if j==1 or i==11 or j==11: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="V":
+                for j in range(1,12):
+                    # Using // for integer division
+                    if i+1==2*j or (j+(((i+1)//2)))==12: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="W":
+                for j in range(1,12):
+                    if j==1 or j==11 or (i+j==12 and i>=6) or (i==j and i>=6): screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="X":
+                for j in range(1,12):
+                    if i==j or i+j==12: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="Y":
+                for j in range(1,12):
+                    if i==6 or i==11 or (j==1 and i<=6) or j==11: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+            elif k=="Z":
+                for j in range(1,12):
+                    if i==1 or i==11 or i+j==12: screen_print("*", end="")
+                    else: screen_print(" ", end="")
+
+        async def main():
+            # Initial wait for PyScript to be ready before prompt
+            await asyncio.sleep(0.1)
+            name = window.prompt("ENTER YOUR NAME:")
+            if not name:
+                return
+                
+            document.getElementById("output").innerText = ""
+            name = name.upper()
+            screen_print("HERE IS YOUR SUPER STAR FONT ",name)
+            screen_print("")
+            screen_print("")
+            screen_print("UNZOOM.....")
+            screen_print("")
+            await asyncio.sleep(3)
+            for i in range(1, 12):
+                c = 0
+                for k in name:
+                    c += 1
+                    await draw(k, i)
+                    if (c % len(name)) != 0: 
+                        screen_print("  ", end="")
+                    else: 
+                        screen_print("\n", end="")
+                await asyncio.sleep(0.7)
+
+        # Execute the main function
+        asyncio.ensure_future(main())
+    </script>
+</body>
+</html>
